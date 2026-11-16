@@ -1,0 +1,57 @@
+# ── Dependencies ──────────────────────────────────────────────
+# Never copy host node_modules — they are installed fresh via `npm ci`
+node_modules/
+**/node_modules/
+
+# ── Build outputs ─────────────────────────────────────────────
+# These are generated inside the container by `npm run build`
+dist/
+build/
+.next/
+.nuxt/
+.output/
+
+# ── Version control ───────────────────────────────────────────
+.git/
+.gitignore
+.github/
+
+# ── Environment & secrets ─────────────────────────────────────
+# Do not bake local secrets into the image
+.env
+.env.*
+!.env.example
+
+# ── Logs & debug files ────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── Editor / OS metadata ─────────────────────────────────────
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# ── Docker files themselves ───────────────────────────────────
+# They don't need to live inside the running image
+Dockerfile*
+docker-compose*.yml
+.dockerignore
+
+# ── Test / lint / config (optional) ──────────────────────────
+# Keep these out of the runtime image if you don't need them
+coverage/
+*.test.*
+*.spec.*
+jest.config.*
+.eslintrc*
+.prettierrc*
+
+# ── Cache directories ─────────────────────────────────────────
+.npm/
+.yarn/
+.pnpm-store/
+.eslintcache
